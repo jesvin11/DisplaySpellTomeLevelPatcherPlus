@@ -137,6 +137,8 @@ namespace DisplaySpellTomeLevelPatcher
                         }
                     }
 
+                    var newSpellName = modName + ": " + spellName;
+
                     var requiresSpellInfo = settings.Format.Contains(SchoolFormat) || settings.Format.Contains(LevelFormat);
                     if (requiresSpellInfo)
                     {
@@ -158,6 +160,8 @@ namespace DisplaySpellTomeLevelPatcher
                     var newName = settings.Format.Replace(LevelFormat, levelName).Replace(PluginFormat, pluginName).Replace(SchoolFormat, schoolName).Replace(SpellFormat, spellName).Replace(ModFormat, modName);
 
                     Console.WriteLine(book.Name.String + "->" + newName);
+
+                    state.PatchMod.Spells.GetOrAddAsOverride(spell).Name = newSpellName
 
                     state.PatchMod.Books.GetOrAddAsOverride(book).Name = newName;
                 }
