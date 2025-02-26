@@ -161,7 +161,7 @@ namespace DisplaySpellTomeLevelPatcher
 
                     Console.WriteLine(book.Name.String + "->" + newName);
 
-                    state.PatchMod.Spells.GetOrAddAsOverride(spell).Name = newSpellName
+                    state.PatchMod.Spells.GetOrAddAsOverride(spell).Name = newSpellName;
 
                     state.PatchMod.Books.GetOrAddAsOverride(book).Name = newName;
                 }
